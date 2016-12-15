@@ -31,6 +31,7 @@ function setup(){
 function draw(){
   background(0);
   eat.food();
+  eat.move();
   control.hungry();
   control.keyPressed();
   control.keyIsDown();

@@ -2,14 +2,13 @@
 var control = {
  x: 10,
  y: 300,
- a: 40,
- b: 40,
+ z: 40,
  speed: 1.5,
  
  //displays game controller emoji
  
  hungry: function() {
-    image(hungry, this.x, this.y, this.a, this.b);
+    image(hungry, this.x, this.y, this.z, this.z);
   },
   
   //move with up and down arrow keys
