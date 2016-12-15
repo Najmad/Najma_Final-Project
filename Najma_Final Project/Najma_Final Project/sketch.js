@@ -1,75 +1,40 @@
+//variables for images
 var bad = [];
 var good = [];
-var images = [bad, good];
-//class for healthy foods
-var eat = {
- z: 20,
- w: 20,
- c: 20,
- d: 20,
- speed: 1.5,
- 
-
-  }
-
-//variables for images
+var i;
 var hungry;
 
 
 
 function preload(){
-  
-//array of images i want to call
-  
-//array of images i want to call
-for (var i = 0; i< 5; i++){
-  good[i] = loadImage("images/good" + i + ".png"); 
-     }
-  hungry = loadImage("images/hungry.png");
+// load images
+    hungry = loadImage("images/hungry.png");
+    bad[0] = loadImage("images/bad0.png");
+    bad[1] = loadImage("images/bad1.png");
+    bad[2] = loadImage("images/bad2.png");
+    bad[3] = loadImage("images/bad3.png");
+    bad[4] = loadImage("images/bad4.png");
+    bad[5] = loadImage("images/bad5.png");
+    good[0] = loadImage("images/good0.png");
+    good[1] = loadImage("images/good1.png");
+    good[2] = loadImage("images/good2.png");
+    good[3] = loadImage("images/good3.png");
+    good[4] = loadImage("images/good4.png");
+    good[5] = loadImage("images/good5.png");
 }
 
- var badFood = {
-     c: 100,
-     d: 100,
-     
-    
-     display: function () {
-       for (var i = 0; i< 5; i++){
-         bad[i] = loadImage("images/bad" + i + ".png");
-         
-         
-     }
-     },
 
-     update: function () {
-         image(bad[0],100, 100, 100, 100);
-        
-     }
- }
- 
-
-function setup() {
+function setup(){
   createCanvas(600, 600);
-  //emoji that user controls with up and down arrows
-
-
 }
 
-function draw() {
+function draw(){
   background(0);
-  
+  eat.food();
   control.hungry();
   control.keyPressed();
   control.keyIsDown();
-  badFood.display();
-  //badFood.update();
-  //eat.food();
-  //food.display
-  // for (var i = bad.length; i >= 0; i--){
-  //   bad[i];
-  // }
-
-  
   
   
 }
+
