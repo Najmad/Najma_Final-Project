@@ -8,10 +8,10 @@ var hungry;
 //variables for good and bad foods
 var w = 50;
 var d = 40;
-var b = [300, 350, 400, 450, 500, 550];
-var a = [1, 50, 100, 150, 200, 250];
-var speed = 0;
+var numbs = [1, 50, 100, 150, 200, 250,300, 350, 400, 450, 500, 550];
+var speed = 3;
 var c = 600;
+var rand;
 
 var gameStarted;
 
@@ -50,6 +50,9 @@ function setup(){
   
   // // set gameStarted equal to false
   // gameStarted = false;
+ // c = random(100, 600);
+  a = numbs[Math.floor(Math.random() * numbs.length)];
+  //rand = random(bad.length && good.length);
   
 }
 
@@ -60,8 +63,8 @@ function draw(){
   
     // hide start button
     //startButton.hide();
-    move();
     resets();
+    move();
     control.hungry();
     control.position();
     badFood();

@@ -20,7 +20,7 @@ var control = {
   },
   
   go: function(direction){
-    this.speed = direction * 3;
+    this.speed = direction * 4;
   },
   
   position: function(){

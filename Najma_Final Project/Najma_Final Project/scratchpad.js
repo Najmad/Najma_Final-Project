@@ -1,0 +1,1 @@
+var badstuff = bad[Math.floor(Math.random() * bad.length)];
