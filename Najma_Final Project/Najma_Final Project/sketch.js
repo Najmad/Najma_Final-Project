@@ -1,19 +1,24 @@
-//variables for images
+//variables 
 var bad = [];
 var good = [];
 //var foods = [];
 var i;
 var hungry;
-
-//variables for good and bad foods
 var w = 50;
-var d = 40;
-var numbs = [1, 50, 100, 150, 200, 250,300, 350, 400, 450, 500, 550];
+var d = 100;
+var a = [1, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550];
 var speed = 3;
-var c = 600;
+var c;
+var c2;
 var rand;
-
 var gameStarted;
+var f1;
+var c1;
+var r;
+var t;
+var t2;
+var g;
+var c2;
 
 function preload(){
   //foods[i].goodbad = 1;
@@ -51,10 +56,19 @@ function setup(){
   // // set gameStarted equal to false
   // gameStarted = false;
  // c = random(100, 600);
-  a = numbs[Math.floor(Math.random() * numbs.length)];
+  //a = numbs[random(numbs.length)];
   //rand = random(bad.length && good.length);
+  f1 = new foods();
+  c1 = new control();
+  r = random(bad);
+  t = random(a);
+  t2 = random(a);
+  g = random(good);
+  c = random(600, 650);
+  c2 = random(600, 650);
   
-}
+  }
+
 
 function draw(){
   background(0);
@@ -63,44 +77,57 @@ function draw(){
   
     // hide start button
     //startButton.hide();
-    resets();
-    move();
-    control.hungry();
-    control.position();
-    badFood();
-    goodFood();
-    eat();
+    c1.hungry();
+    c1.position();
+    
+    //eat();
+    //for (var j = 0; j < 100; j++){
+   
+    
+    f1.badFood();
+    
+   
+    f1.goodFood();
+    
+    //}
+    f1.move();
+    
+    if (c1.intersects(f1.badFood)){
+       c1.bigger();
   
+     }
+    
+    if (c1.intersecting(f1.goodFood)){
+      c1.smaller();
+  
+    }
+    f1.resets();
+
   
   
 // }
 
 }
 
-function play(){
+// function play(){
     
-}
+// }
 function keyReleased(){
-    control.stop();
+    c1.stop();
     }
 
   
   //move with up and down arrow keys
 function keyPressed(){
     if (keyCode === DOWN_ARROW) {
-      control.go(1);
+      c1.go(1);
   } else if 
   (keyCode === UP_ARROW) {
-    control.go(-1);
+    c1.go(-1);
   } 
 }
 
-// function eatBadFood(){
-//   if(c == control.x && control.y == b){
-//       
 
-//     }
-// }
 
 
 

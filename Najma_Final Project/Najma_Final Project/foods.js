@@ -1,33 +1,42 @@
 
   
     //functions to display and move food
- 
-  function badFood(){
-   for (i = 0; i < 6; i++){
-    image(bad[i], c, a, w, w);
-  }
- 
-  }
+ function foods(){
+   
 
-  function goodFood(){
-   for (i = 0; i < 6; i++){
-    image(good[i], c, a, w, w);
+  this.badFood = function(){
+    image(r, c, t, w, w);
+  }
+ 
+
+  this.goodFood = function(){
+    image(g, c2, t2, w, w);
   }
  
    
-  }
+  
   
  
   
-   function move(){
+   this.move = function(){
       c = c -= speed;
+      c2 = c2 -= speed;
   }
   
   
-    function resets(){
-    if (c < -50){
-      c = 600;
-      a = random(1, 550);
+    this.resets = function(){
+    if (c < -50) {
+      c = random(600, 700);
+      t = random(50, 550);
       speed = random(4, 10);
+    } else if (c2 < -50){
+      c2 = random(600, 700);
+      t2 = random(50, 550);
+      speed = random(4, 10);
+      
     }
+    
+    
   }
+  
+ }
