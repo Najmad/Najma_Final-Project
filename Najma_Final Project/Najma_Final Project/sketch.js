@@ -8,7 +8,7 @@ var d = 100;
 var a = [1, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550];
 //var rand;
 var gameStarted;
-var f1;
+var f1 //, f2;
 var c1;
 var c2;
 var c;
@@ -16,6 +16,7 @@ var t;
 var t2;
 var count = 0;
 var mmm;
+var doh;
 
 
 
@@ -42,6 +43,7 @@ function preload(){
     good[7] = loadImage("images/good7.png");
     good[8] = loadImage("images/good8.png");
     mmm = loadSound("sound/mmm.mp3");
+    doh = loadSound("sound/doh.mp3");
     
     
 }
@@ -68,7 +70,7 @@ function setup(){
   //rand = random(bad.length && good.length);
   f1 = new foods();
   c1 = new control();
-  
+  //f2 = new foods();
 
   
   }
@@ -80,6 +82,11 @@ function draw(){
   //console.log(count)
   //var mil = millis();
   //console.log(mil)
+  
+  // if (frameCount % 30 == 0) {
+  //   f1.badFood();
+  //   //f1.move();
+  // }
   
   // window.setInterval(f1.badFood(), Math.floor(Math.random()*10));
   // window.setInterval(f1.goodFood(), Math.floor(Math.random()*10));
@@ -102,20 +109,28 @@ function draw(){
     //   f1.move();
     // }
      
-    window.setTimeout(f1.badFood(), Math.floor(Math.random()*10000));
-    window.setTimeout(f1.goodFood(), Math.floor(Math.random()*10000));
-    window.setTimeout(f1.move(), Math.floor(Math.random()*10000));
-    console.log("hello")
-    // f1.badFood();
-    // f1.goodFood();
-    // f1.move();
+    // window.setTimeout(f1.badFood(), Math.floor(Math.random()*100000));
+    // window.setTimeout(f1.goodFood(), Math.floor(Math.random()*100000));
+    // window.setTimeout(f1.move(), Math.floor(Math.random()*10000));
+    //console.log("hello")
+    f1.badFood();
+    f1.goodFood();
+    f1.move();
+    //f2.badFood();
+      
+    // if (millis() >2000) {
+    //   f2.badFood();
+    //   f2.move();
+      
+    //}
+    
      
   
     
     if (c1.intersects(f1.badFood)){
        c1.bigger();
        f1.resetsBadFood();
-       mmm.play();
+       doh.play();
   
      }
     

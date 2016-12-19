@@ -15,7 +15,7 @@ function control(x, y) {
   
   //makes bigger
   this.bigger = function(){
-    this.z += 1.1;
+    this.z += 2.5;
     if (this.z >= 125){
       this.r = 70;
     }
@@ -23,7 +23,7 @@ function control(x, y) {
   
   //makes smaller
   this.smaller = function(){
-    this.z -= 1;
+    this.z -= 2;
     if (this.z <= 35){
       this.z = 35;
     }
@@ -36,7 +36,7 @@ function control(x, y) {
   
   //moves when button is released
   this.go = function(direction){
-    if (this.z < 65){
+    if (this.z < 55){
     this.speed = direction * 5;
   } else this.speed = direction * 3;
   }
