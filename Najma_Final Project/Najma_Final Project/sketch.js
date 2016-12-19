@@ -1,24 +1,23 @@
 //variables 
 var bad = [];
 var good = [];
-//var foods = [];
-var i;
+//var i;
 var hungry;
 var w = 50;
 var d = 100;
 var a = [1, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550];
-var speed = 3;
-var c;
-var c2;
-var rand;
+//var rand;
 var gameStarted;
 var f1;
 var c1;
-var r;
+var c2;
+var c;
 var t;
 var t2;
-var g;
-var c2;
+var count = 0;
+var mmm;
+
+
 
 function preload(){
   //foods[i].goodbad = 1;
@@ -30,12 +29,21 @@ function preload(){
     bad[3] = loadImage("images/bad3.png");
     bad[4] = loadImage("images/bad4.png");
     bad[5] = loadImage("images/bad5.png");
+    bad[6] = loadImage("images/bad6.png");
+    bad[7] = loadImage("images/bad7.png");
+    bad[8] = loadImage("images/bad8.png");
     good[0] = loadImage("images/good0.png");
     good[1] = loadImage("images/good1.png");
     good[2] = loadImage("images/good2.png");
     good[3] = loadImage("images/good3.png");
     good[4] = loadImage("images/good4.png");
     good[5] = loadImage("images/good5.png");
+    good[6] = loadImage("images/good6.png");
+    good[7] = loadImage("images/good7.png");
+    good[8] = loadImage("images/good8.png");
+    mmm = loadSound("sound/mmm.mp3");
+    
+    
 }
 
 function startGame()
@@ -60,48 +68,68 @@ function setup(){
   //rand = random(bad.length && good.length);
   f1 = new foods();
   c1 = new control();
-  r = random(bad);
-  t = random(a);
-  t2 = random(a);
-  g = random(good);
-  c = random(600, 650);
-  c2 = random(600, 650);
+  
+
   
   }
 
 
 function draw(){
   background(0);
+  //count ++;
+  //console.log(count)
+  //var mil = millis();
+  //console.log(mil)
   
-  // if(gameStarted == true){
+  // window.setInterval(f1.badFood(), Math.floor(Math.random()*10));
+  // window.setInterval(f1.goodFood(), Math.floor(Math.random()*10));
+  // window.setInterval(f1.move(), Math.floor(Math.random()*10));
+  // // if(gameStarted == true){
   
     // hide start button
     //startButton.hide();
     c1.hungry();
     c1.position();
     
-    //eat();
-    //for (var j = 0; j < 100; j++){
-   
-    
-    f1.badFood();
-    
-   
-    f1.goodFood();
-    
-    //}
-    f1.move();
+    // if (mil >= 500){
+    // f1.badFood();
+    // f1.goodFood();
+    // f1.move();
+    // } 
+    // if (mil >= 1000){
+    //   f1.badFood();
+    //   f1.goodFood();
+    //   f1.move();
+    // }
+     
+    window.setTimeout(f1.badFood(), Math.floor(Math.random()*10000));
+    window.setTimeout(f1.goodFood(), Math.floor(Math.random()*10000));
+    window.setTimeout(f1.move(), Math.floor(Math.random()*10000));
+    console.log("hello")
+    // f1.badFood();
+    // f1.goodFood();
+    // f1.move();
+     
+  
     
     if (c1.intersects(f1.badFood)){
        c1.bigger();
+       f1.resetsBadFood();
+       mmm.play();
   
      }
     
+       
+
+     
     if (c1.intersecting(f1.goodFood)){
       c1.smaller();
+      f1.resetsGoodFood();
+      mmm.play();
   
     }
     f1.resets();
+    
 
   
   
@@ -126,6 +154,8 @@ function keyPressed(){
     c1.go(-1);
   } 
 }
+
+
 
 
 

@@ -15,7 +15,7 @@ function control(x, y) {
   
   //makes bigger
   this.bigger = function(){
-    this.z += .5;
+    this.z += 1.1;
     if (this.z >= 125){
       this.r = 70;
     }
@@ -23,7 +23,7 @@ function control(x, y) {
   
   //makes smaller
   this.smaller = function(){
-    this.z -= .4;
+    this.z -= 1;
     if (this.z <= 35){
       this.z = 35;
     }
